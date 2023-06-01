@@ -1,0 +1,40 @@
+.companies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:3% 10%;
+}
+
+.companiesContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2%;
+    padding-top: 5%;
+}
+
+.logo {
+    height: 3rem;
+    width: 3rem;
+    border: transparent;
+    border-radius: 0.5rem;
+    margin-right: 1.5rem;
+  }
+
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
+.title {
+    font-weight: bold;
+    padding-top: 9px;
+    justify-content:last baseline;
+    align-items: baseline;
+}
+
+.compName {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 3%;
+}

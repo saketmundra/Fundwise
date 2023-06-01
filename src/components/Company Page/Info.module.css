@@ -100,3 +100,16 @@ margin-bottom: 5%;
     justify-content: center;
     margin: 2% 0;
 }
+
+.invest {
+  display: flex;
+  flex-direction: row;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  width:50%;
+}
