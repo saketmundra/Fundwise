@@ -7,12 +7,14 @@ import LandingPage from './LandingPage';
 import UserLogin from './components/authentication/userLogin';
 import StartupLogin from './components/authentication/startupLogin';
 import AboutPage from './components/AboutPage';
+import CompanyPage from "../src/components/Company Page/CompanyPage"
 const App = () => {
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route path='/' element={<LandingPage />} />
+        <Route path='/' element={<CompanyPage />} />
+        {/* <Route path='/' element={<LandingPage />} /> */}
         <Route path='/about' element={<AboutPage />} />
         <Route path='/raise' element={<StartupLogin />} />
         <Route path='/invest' element={<UserLogin />} />
