@@ -6,7 +6,7 @@ const Navbar = () => {
         setNav(!nav)
     }
   return (
-    <div className='flex justify-between items-center h-24  mx-auto px-4 text-black border-none shadow-md '>
+    <div className='flex justify-between items-center h-24  mx-auto px-4 text-white bg-black border-none shadow-md '>
         <h1 className='w-full text-3xl font-bold text-[#00df9a]'>COINVEST</h1>
         <ul className='hidden md:flex'>
             <li className='p-4'>Home</li>
