@@ -1,46 +1,58 @@
-import React from 'react'
-import { double, single, triple } from '../assets'
+import React from "react";
+import { double, single, triple } from "../assets";
 
 const Cards = () => {
   return (
-    <div className='w-full py-[10rem] px-4 bg-white'>
-        <div className='max-w-[1240px] mx-auto grid md:grid-cols-3 gap-8 '>
-            <div className='w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300'>
-                <img className='w-20 mx-auto mt-[-3rem] bg-white' src={single} alt="" />
-                <h2 className='text-2xl font-bold text-center py-8'>Single User</h2>
-                <p className='text-center text-4xl font-bold'>$149</p>
-                <div>
-                    <p className='py-2 border-b mx-8 mt-8'>500 GB Storage</p>
-                    <p className='py-2 border-b mx-8 '>1 grant User</p>
-                    <p className='py-2 border-b mx-8 '>Send up to 2 GB</p>
-                </div>
-                <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto md:mx:0 py-3 px-6'>Start Trial</button>
-            </div>
-            <div className='w-full shadow-xl bg-gray-100 flex flex-col p-4 md:my-0 my-8 rounded-lg hover:scale-105 duration-300'>
-                <img className='w-20 mx-auto mt-[-3rem] bg-transparent' src={double} alt="" />
-                <h2 className='text-2xl font-bold text-center py-8'>Single User</h2>
-                <p className='text-center text-4xl font-bold'>$149</p>
-                <div>
-                    <p className='py-2 border-b mx-8 mt-8'>500 GB Storage</p>
-                    <p className='py-2 border-b mx-8 '>1 grant User</p>
-                    <p className='py-2 border-b mx-8 '>Send up to 2 GB</p>
-                </div>
-                <button className='bg-black w-[200px] rounded-md font-medium my-6 mx-auto md:mx:0 py-3 px-6 text-[#00df9a]'>Start Trial</button>
-            </div>
-            <div className='w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300'>
-                <img className='w-20 mx-auto mt-[-3rem] bg-white' src={triple} alt="" />
-                <h2 className='text-2xl font-bold text-center py-8'>Single User</h2>
-                <p className='text-center text-4xl font-bold'>$149</p>
-                <div>
-                    <p className='py-2 border-b mx-8 mt-8'>500 GB Storage</p>
-                    <p className='py-2 border-b mx-8 '>1 grant User</p>
-                    <p className='py-2 border-b mx-8 '>Send up to 2 GB</p>
-                </div>
-                <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto md:mx:0 py-3 px-6'>Start Trial</button>
-            </div>
+    <>
+      <div className="w-full py-[3rem] px-4 bg-white">
+        <div className="text-[#00df9a] font-bold text-4xl text-center">
+          Subscribe to opportunities curated for you
         </div>
-    </div>
-  )
-}
+        <br />
+        <br />
+        <br />
+        <div className="max-w-[1240px] mx-auto grid md:grid-cols-2 gap-8 ">
+          <div className="w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
+            <img
+              className="w-20 mx-auto mt-[-3rem] bg-white"
+              src="https://ds0zssdpdgkzg.cloudfront.net/Equity_bd_50c3a05367_674af5ea2a.webp"
+              alt=""
+            />
+            <h2 className="text-2xl font-bold text-center py-8">
+              Equity linked instruments
+            </h2>
+            <p className="text-center text-xl ">
+              Subscribe to gain access to exclusive high return opportunities in
+              growing businesses.
+            </p>
+            <div>
+              <p className="py-2 border-b mx-8 mt-8">Expected Return</p>
+              <p className="py-2 border-b mx-8 ">Risk</p>
+              <p className="py-2 border-b mx-8 ">Liquidity</p>
+            </div>
+          </div>
+          <div className="w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
+            <img
+              className="w-20 mx-auto mt-[-3rem] bg-white"
+              src="https://ds0zssdpdgkzg.cloudfront.net/Fixed_income_bd_b932249cc7_23f5279964.webp"
+              alt=""
+            />
+            <h2 className="text-2xl font-bold text-center py-8">
+              Fixed Income instruments
+            </h2>
+            <p className="text-center text-xl ">
+              Enjoy regular payouts and dividends with high yield investment opportunities.
+            </p>
+            <div>
+              <p className="py-2 border-b mx-8 mt-8">Expected Return</p>
+              <p className="py-2 border-b mx-8 ">Risk</p>
+              <p className="py-2 border-b mx-8 ">Liquidity</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
-export default Cards
+export default Cards;

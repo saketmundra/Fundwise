@@ -5,9 +5,9 @@ const App = () => {
     <div>
       <Navbar />
       <Hero />
+      <Cards />
       <Analytics />
       <Newsletter/>
-      <Cards />
       <Footer />
     </div>
   )
