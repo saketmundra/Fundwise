@@ -34,7 +34,7 @@ const Listing = (props) => {
         <div className={classes.companiesContainer}>
           <ul className={classes.list}>
             {companies.map((company) => (
-              <BoxContainer key={company.id} id={company.id} target={company.target} targetDate={company.targetDate} name={company.legalName} />
+              <BoxContainer key={company.id} id={company._id} target={company.target} targetDate={company.targetDate} name={company.legalName} />
             ))}
           </ul>
         </div>

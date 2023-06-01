@@ -11,7 +11,7 @@ const BoxContainer = (props) => {
 
   let navigate = useNavigate(); 
     const handleClick = () =>{ 
-    let path = `/companypage`; 
+    let path = `/${props.id}`; 
     navigate(path);
   }
 
