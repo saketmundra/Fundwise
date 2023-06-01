@@ -8,7 +8,7 @@ const Analytics = () => {
             <div className='flex flex-col justify-center'>
                 <p className='text-[#00df9a] font-bold'>Startups funded on Coinvest have subsequently raised at up to 3x valuation</p>
                 <h1 className='md:text-4xl sm:text-3xl text-2xl font-bold py-2'>Some popular startups!</h1>
-                <p className='font-bold md:text-xl'> EyeMyEYE,HelloWeb3,ArtMent,Coinvest,Neuphony,Sustvest,Better,9Unicorns</p>
+                <p className='font-bold md:text-xl'>EyeMyEYE,HelloWeb3,ArtMent,Coinvest,Neuphony,Sustvest,Better,9Unicorns</p>
             </div>
         </div>
     </div>

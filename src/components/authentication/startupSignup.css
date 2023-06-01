@@ -1,0 +1,27 @@
+.mainstartupSignup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.bio {
+    height: 25vh;
+    width: 40%;
+    margin-left: 31%;
+    border: 0.5px solid gray;
+    border-radius: 2%;
+}
+
+.dropdown {
+    width:40%;
+    font-size: 1.8rem;
+    border: 0.5px solid gray;
+    margin-left: 31%;
+}
+
+.sualready {
+    font-size: 1.1rem;
+    margin: 3% auto 0;
+    display: inline;
+    color: gray;
+}
