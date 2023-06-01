@@ -4,15 +4,23 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import FormLabel from '@mui/material/FormLabel';
 
+import { useNavigate } from "react-router-dom";
 
 import './startupSignup.css'
 
-function startupSignup() {
+function StartupSignup() {
+
+    let navigate = useNavigate(); 
+    const startuplogin = () =>{ 
+    let path = `/startupLogin`; 
+    navigate(path);
+  }
+
     return (
         <div className="mainstartupSignup">
             
             <p className="sualready">Already Registered?</p>      
-            <Button sx={{display:"inline", width:"20%", margin:"0.5% auto 1%", color:"#00df9a"}}>Sign In</Button>
+            <Button onClick={startuplogin} sx={{display:"inline", width:"20%", margin:"0.5% auto 1%", color:"#00df9a"}}>Login</Button>
 
             <form>
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor="companyName" required>Company Name:</FormLabel>
@@ -84,11 +92,11 @@ function startupSignup() {
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor='vidlink'>Video Link Explaining your startup:</FormLabel>
                 <TextField sx={{width:"40%", marginLeft:"31%"}} type="url" id='vidlink' name='vidlink' placeholder='Video Link' />
 
-                <Button sx={{display:"block", margin:"3% auto 2%", color:"#00df9a"}} type='submit'>Register Now</Button>
+                <Button sx={{display:"block", margin:"3% auto 2%", color:"#00df9a",padding:"0.5% 6%"}} type='submit'>Register Now</Button>
 
             </form>
         </div>
     )
 }
 
-export default startupSignup
+export default StartupSignup
