@@ -6,6 +6,8 @@ import FormLabel from '@mui/material/FormLabel';
 
 import { useNavigate } from "react-router-dom";
 
+import axios from 'axios';
+
 import './userLogin.css'
 
 function UserLogin() {
@@ -23,8 +25,21 @@ function UserLogin() {
 
   const handleInput = (e) => {
 		setUserData({ ...userData, [e.target.name]: e.target.value });
-    console.log(userData)
+    // console.log(userData)
 	};
+
+
+    const handleBtn = (e) => {
+        e.preventDefault();
+        console.log(userData)
+        const userD={
+          email: userData.emailid,
+          password: userData.upassword
+        } 
+        console.log(userD)
+        axios.post('http://localhost:5000/api/users/signin', userD)
+        .then(response => console.log(response.status));
+      }
 
     return(
         <div>
@@ -35,7 +50,7 @@ function UserLogin() {
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor="upassword">Enter password:</FormLabel>
                 <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type="password" id="upassword" name="upassword" />
 
-                <Button sx={{display:"block", margin:"3% auto 2%", color:"#00df9a",padding:"0.5% 6%"}} type='submit'>Login</Button>
+                <Button onClick={handleBtn} sx={{display:"block", margin:"3% auto 2%", color:"#00df9a",padding:"0.5% 6%"}} type='submit'>Login</Button>
 
                 <p className="alreadylogged">New User?</p>
                 <Button onClick={usersignup} sx={{display:"inline", width:"20%", margin:"0.5% 40.7% 3%", color:"#00df9a",padding:"0.5% 6%"}}>Register Now</Button>

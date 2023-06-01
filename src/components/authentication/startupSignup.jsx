@@ -6,6 +6,8 @@ import FormLabel from '@mui/material/FormLabel';
 
 import { useNavigate } from "react-router-dom";
 
+import axios from "axios";
+
 import './startupSignup.css'
 
 function StartupSignup() {
@@ -37,8 +39,38 @@ function StartupSignup() {
 
   const handleInput = (e) => {
 		setUserData({ ...userData, [e.target.name]: e.target.value });
-        console.log(userData)
+        // console.log(userData)
 	};
+
+    const handleBtn = (e) => {
+        e.preventDefault();
+        console.log(userData)
+        const userD={
+          logo: "aaa",
+          legalName: userData.companyName,
+          email: userData.companyEmail,
+          linkedin: userData.linkedIn,
+          founderName: userData.founder,
+          founderLn: userData.founderLn,
+          password: userData.pass,
+          bio: userData.bio,
+          category: userData.category,
+          valuation: userData.valuation,
+          minsubamt: userData.minSub,
+          target: userData.target,
+          targetDate: userData.targetdate,
+          custBase: userData.custBase,
+          revenue: userData.revenue,
+          videoLink: userData.vidlink,
+          assignedAddress:"demo",
+          walletAddress: userData.walletAdd,
+          documents: userData.docs,
+
+        } 
+        console.log(userD)
+        axios.post('http://localhost:5000/api/company/signup', userD)
+        .then(response => console.log(response.status));
+      }
 
     return (
         <div className="mainstartupSignup">
@@ -113,10 +145,15 @@ function StartupSignup() {
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor="docs">Link of Relevant Documents:</FormLabel>
                 <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type='url' id='docs' name='docs' placeholder='Relevant Documents' />
 
+
+                <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor="walletAdd">Wallet Address</FormLabel>
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type='text' id='walletAdd' name='walletAdd' placeholder='Wallet Address' />
+
+
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor='vidlink'>Video Link Explaining your startup:</FormLabel>
                 <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type="url" id='vidlink' name='vidlink' placeholder='Video Link' />
 
-                <Button sx={{display:"block", margin:"3% auto 2%", color:"#00df9a",padding:"0.5% 6%"}} type='submit'>Register Now</Button>
+                <Button onClick={handleBtn} sx={{display:"block", margin:"3% auto 2%", color:"#00df9a",padding:"0.5% 6%"}} type='submit'>Register Now</Button>
 
             </form>
         </div>

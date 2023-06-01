@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import FormLabel from '@mui/material/FormLabel';
 import { useNavigate } from "react-router-dom";
 
+import axios from 'axios';
 
 import './userSignup.css'
 
@@ -27,8 +28,24 @@ function UserSignupForm() {
 
   const handleInput = (e) => {
 		setUserData({ ...userData, [e.target.name]: e.target.value });
-    console.log(userData)
+    // console.log(userData)
 	};
+
+const handleBtn = (e) => {
+  e.preventDefault();
+  console.log(userData)
+  const userD={
+    email: userData.email,
+    name: userData.name,
+    phoneno: userData.phoneNumber,
+    panno: userData.panNumber,
+    adhno: userData.aadhar,
+    password: userData.userpassword
+  } 
+  console.log(userD)
+  axios.post('http://localhost:5000/api/users/signup', userD)
+  .then(response => console.log(response.status));
+}
 
 
   return (
@@ -58,7 +75,7 @@ function UserSignupForm() {
       <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor="userpassword" required>Password:</FormLabel>
       <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} id="userpassword" type="password" name="userpassword" placeholder="Your Password" />
       
-      <Button sx={{display:"block", margin:"3% auto 2%", color:"#00df9a",padding:"0.5% 6%"}} type="submit">Register Now</Button>
+      <Button onClick={handleBtn} sx={{display:"block", margin:"3% auto 2%", color:"#00df9a",padding:"0.5% 6%"}} type="submit">Register Now</Button>
     </form>
     </div>
   )
