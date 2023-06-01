@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body{
-  background-color: #000300;
+  background-color: white;
 }
 .ityped-cursor {
   animation: blink 1s infinite;
