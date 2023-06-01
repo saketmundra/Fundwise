@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
+import { AuthContext } from '../store/AuthContext'
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
-const Navbar = () => {
+const Navbar = ({loggedIn}) => {
     const [nav, setNav] = useState(false)
     const handleNav = () => {
         setNav(!nav)
     }
+
   return (
     <div className='flex justify-between items-center h-24  mx-auto px-4 text-white bg-black border-none shadow-md '>
         <h1 className='w-full text-3xl font-bold text-[#00df9a]'>COINVEST</h1>
@@ -12,7 +14,8 @@ const Navbar = () => {
             <li className='p-4'><a href='./'>Home</a></li>
             <li className='p-4'><a href='./about'>About</a></li>
             <li className='p-4'><a href='./raise'>Raise</a></li>
-            <li className='p-4'><a href='./invest'>Invest</a></li>
+            {!loggedIn?<li className='p-4'><a href='./invest'>Invest</a></li>:<li className='p-4'><a href='./'>Logout</a></li>}
+            {loggedIn?<li className='p-4'><a href='./invest'>Holdings</a></li>:''}
         </ul>
     <div onClick={handleNav} className='block md:hidden'>
         {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
@@ -25,6 +28,7 @@ const Navbar = () => {
             <li className='p-4 border-b border-gray-600'>Company</li>
             <li className='p-4 border-b border-gray-600'>Resources</li>
             <li className='p-4 border-b border-gray-600'>About</li>
+            <li className='p-4 border-b border-gray-600'>Holdings</li>
             <li className='p-4'>Contact</li>
         </ul>
     </div>

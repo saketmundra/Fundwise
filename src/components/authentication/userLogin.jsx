@@ -1,8 +1,9 @@
-import React,{useState} from "react";
+import React,{useContext, useState} from "react";
 
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import FormLabel from '@mui/material/FormLabel';
+import {AuthContext} from "../../store/AuthContext";
 
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +12,7 @@ import axios from 'axios';
 import './userLogin.css'
 
 function UserLogin() {
+  const  login= useContext(AuthContext).login;
 
     let navigate = useNavigate(); 
     const usersignup = () =>{ 
@@ -39,6 +41,8 @@ function UserLogin() {
         
         axios.post('http://localhost:5000/api/users/signin', userD)
         .then(response => localStorage.setItem("access_token",response.data));
+        login();
+        navigate(`/`);
       }
 
     return(
