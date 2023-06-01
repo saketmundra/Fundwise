@@ -1,5 +1,6 @@
 import React from "react";
 import { double, single, triple } from "../assets";
+import LinearProgress from '@mui/material/LinearProgress';
 
 const Cards = () => {
   return (
@@ -26,9 +27,9 @@ const Cards = () => {
               growing businesses.
             </p>
             <div>
-              <p className="py-2 border-b mx-8 mt-8">Expected Return</p>
-              <p className="py-2 border-b mx-8 ">Risk</p>
-              <p className="py-2 border-b mx-8 ">Liquidity</p>
+              <p className="py-2 border-b mx-8 mt-8">Expected Return <LinearProgress color="success" variant="determinate" value={80} /></p>
+              <p className="py-2 border-b mx-8 ">Risk <LinearProgress color="success"variant="determinate" value={50} /></p>
+              <p className="py-2 border-b mx-8 ">Liquidity <LinearProgress color="success"variant="determinate" value={25} /></p>
             </div>
           </div>
           <div className="w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
@@ -44,9 +45,9 @@ const Cards = () => {
               Enjoy regular payouts and dividends with high yield investment opportunities.
             </p>
             <div>
-              <p className="py-2 border-b mx-8 mt-8">Expected Return</p>
-              <p className="py-2 border-b mx-8 ">Risk</p>
-              <p className="py-2 border-b mx-8 ">Liquidity</p>
+              <p className="py-2 border-b mx-8 mt-8">Expected Return <LinearProgress color="success" variant="determinate" value={50} /></p>
+              <p className="py-2 border-b mx-8 ">Risk <LinearProgress color="success" variant="determinate" value={25} /></p>
+              <p className="py-2 border-b mx-8 ">Liquidity <LinearProgress color="success" variant="determinate" value={75} /></p>
             </div>
           </div>
         </div>

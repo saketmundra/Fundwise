@@ -38,3 +38,8 @@
     font-weight: bold;
     padding: 3%;
 }
+
+.list {
+    display: flex;
+    flex-direction: row;
+}
