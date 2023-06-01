@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -12,9 +12,33 @@ function StartupSignup() {
 
     let navigate = useNavigate(); 
     const startuplogin = () =>{ 
-    let path = `/startupLogin`; 
+    let path = `/raise`; 
     navigate(path);
   }
+
+  const [userData,setUserData] = useState({
+    companyName: "",
+    companyEmail: "",
+    linkedIn: "",
+    founder: "",
+    founderLn: "",
+    pass: "",
+    bio: "",
+    category: "",
+    valuation: "",
+    minSub: "",
+    target: "",
+    targetdate: "",
+    custBase: "",
+    revenue: "",
+    docs: "",
+    vidlink: ""
+  })
+
+  const handleInput = (e) => {
+		setUserData({ ...userData, [e.target.name]: e.target.value });
+        console.log(userData)
+	};
 
     return (
         <div className="mainstartupSignup">
@@ -24,28 +48,28 @@ function StartupSignup() {
 
             <form>
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor="companyName" required>Company Name:</FormLabel>
-                <TextField sx={{width:"40%", marginLeft:"31%"}} type="text" name="companyName" placeholder="Your Company name" />
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type="text" name="companyName" placeholder="Your Company name" />
 
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor='companyEmail' required>Email ID:</FormLabel>
-                <TextField sx={{width:"40%", marginLeft:"31%"}} type='email' id='companyEmail' name='companyEmail' placeholder='Your Email Id' />
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type='email' id='companyEmail' name='companyEmail' placeholder='Your Email Id' />
 
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor='linkedIn' required>Company LinkedIn:</FormLabel> 
-                <TextField sx={{width:"40%", marginLeft:"31%"}} type='url' id='linkedIn' name='linkedIn' placeholder='Your LinkedIn' />
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type='url' id='linkedIn' name='linkedIn' placeholder='Your LinkedIn' />
 
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor='founder' required>Founder's Name:</FormLabel>
-                <TextField sx={{width:"40%", marginLeft:"31%"}} type='text' id='founder' name='founder' placeholder='Founder Name' />
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type='text' id='founder' name='founder' placeholder='Founder Name' />
                 
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor='founderLn' required>Founder's LinkedIn:</FormLabel>
-                <TextField sx={{width:"40%", marginLeft:"31%"}} type='text' id='founderLn' name='founderLn' placeholder='Founder LinkedIn' />
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type='text' id='founderLn' name='founderLn' placeholder='Founder LinkedIn' />
 
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor='pass' required>Password:</FormLabel>
-                <TextField sx={{width:"40%", marginLeft:"31%"}} type='password' id='pass' name='pass' placeholder='Password' />
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type='password' id='pass' name='pass' placeholder='Password' />
 
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor='bio' required>Tell Us About your Company:</FormLabel>
-                <textarea className="bio" maxLength={250} id='bio' name='bio' placeholder='Company Bio' /> 
+                <textarea onChange={handleInput} className="bio" maxLength={250} id='bio' name='bio' placeholder='Company Bio' /> 
 
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor="category" required>Which category does your company fall under?</FormLabel>
-                <select className="dropdown">
+                <select onChange={handleInput} className="dropdown" name="category" id="category">
                     <option disabled selected value=""></option>
                     <option value="aerospace">Aerospace</option>
                     <option value="transport">Transport</option>
@@ -69,28 +93,28 @@ function StartupSignup() {
                     
                 </select>
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor="valuation" required>Company valuation:</FormLabel>
-                <TextField sx={{width:"40%", marginLeft:"31%"}} type='number' id='valuation' name='valuation' placeholder='Company Valuation' />
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type='number' id='valuation' name='valuation' placeholder='Company Valuation' />
 
-                <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor="minSub" required>Minimum Subscription Amount (in Rupees):</FormLabel>
-                <TextField sx={{width:"40%", marginLeft:"31%"}} type="number" id='minSUb' name='minSub' placeholder='Minimum Sub Amount' />
+                <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor="minSub" required>Minimum Subscription Amount:</FormLabel>
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type="number" id='minSub' name='minSub' placeholder='Minimum Sub Amount' />
 
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor="target" required>Target Amount:</FormLabel>
-                <TextField sx={{width:"40%", marginLeft:"31%"}} type='number' id='target' name='target' placeholder='Your Target Amount' />
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type='number' id='target' name='target' placeholder='Your Target Amount' />
 
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor='targetdate' required>Target Date:</FormLabel>
-                <TextField sx={{width:"40%", marginLeft:"31%"}} type='date' placeholder='Target Date' id='targetdate' name='targetdate' />
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type='date' placeholder='Target Date' id='targetdate' name='targetdate' />
 
                <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor='custBase' required>Expected Customer Base:</FormLabel>
-                <TextField sx={{width:"40%", marginLeft:"31%"}} type='number' id='custBase' name='custBase' placeholder='Customer Base' />
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type='number' id='custBase' name='custBase' placeholder='Customer Base' />
 
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor="revenue" required>Expected Revenue:</FormLabel>
-                <TextField sx={{width:"40%", marginLeft:"31%"}} type="number" id='revenue' name='revenue' placeholder='Revenue' />
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type="number" id='revenue' name='revenue' placeholder='Revenue' />
 
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor="docs">Link of Relevant Documents:</FormLabel>
-                <TextField sx={{width:"40%", marginLeft:"31%"}} type='url' id='docs' name='docs' placeholder='Relevant Documents' />
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type='url' id='docs' name='docs' placeholder='Relevant Documents' />
 
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor='vidlink'>Video Link Explaining your startup:</FormLabel>
-                <TextField sx={{width:"40%", marginLeft:"31%"}} type="url" id='vidlink' name='vidlink' placeholder='Video Link' />
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type="url" id='vidlink' name='vidlink' placeholder='Video Link' />
 
                 <Button sx={{display:"block", margin:"3% auto 2%", color:"#00df9a",padding:"0.5% 6%"}} type='submit'>Register Now</Button>
 
