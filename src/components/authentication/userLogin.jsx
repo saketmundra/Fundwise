@@ -35,10 +35,10 @@ function UserLogin() {
         const userD={
           email: userData.emailid,
           password: userData.upassword
-        } 
-        console.log(userD)
+        }
+        
         axios.post('http://localhost:5000/api/users/signin', userD)
-        .then(response => console.log(response.status));
+        .then(response => localStorage.setItem("access_token",response.data));
       }
 
     return(
