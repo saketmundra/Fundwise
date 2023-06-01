@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: self-start;
+  padding: 2rem 0rem;
+}
+.description {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: fit-content;
+}
+.head {
+  text-transform: capitalize;
+  font-size: 24px;
+  line-height: 29px;
+  font-style: bold;
+}
+.logo {
+  height: 4rem;
+  width: 4rem;
+  border: transparent;
+  border-radius: 0.5rem;
+  margin-right: 1.5rem;
+}
+
+/* ////////////////////////////////// */
+
+.cardContainer {
+  /* padding: 3rem 0 3rem 0; */
+  display: flex;
+  width: fit-content;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.highlight {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  /* width: 80%; */
+  /* padding: 3rem; */
+}
+
+.heading {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.img {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+/* /////////////////////// */
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 3% 10%;
+}
+
+/* /////////////////// */
+.deal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  /* align-items: flex-start; */
+  /* justify-content: left; */
+}
