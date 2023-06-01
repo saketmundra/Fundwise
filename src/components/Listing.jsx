@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BoxContainer from "./BoxContainer";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import axios from "axios";
 
 import classes from "./Listing.module.css";
 
-const Listing = () => {
+const Listing = (props) => {
+
+  const [companies,setCompanies] = useState([])
+  useEffect(()=> {
+    axios.get("http://localhost:5000/api/company/getall")
+    .then(function(response) {
+      console.log(response.data)
+      setCompanies(response.data)
+    })
+  },[])
+
   return (
     // <Container fixed>
     <div className={classes.companies}>
@@ -22,14 +33,15 @@ const Listing = () => {
           //},
         }}
       >
-        <div styles={{padding:"5%"}}>
-          <h2 className={classes.compName}>
-            Live Campaigns</h2>
+        <div styles={{ padding: "5%" }}>
+          <h2 className={classes.compName}>Live Campaigns</h2>
         </div>
         <div className={classes.companiesContainer}>
-          <BoxContainer />
-          <BoxContainer />
-          <BoxContainer />
+          <ul className={classes.list}>
+            {companies.map((company) => (
+              <BoxContainer key={company.id} id={company.id} target={company.target} targetDate={company.targetDate} name={company.legalName} />
+            ))}
+          </ul>
         </div>
       </Box>
     </div>
