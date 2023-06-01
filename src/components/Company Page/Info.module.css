@@ -48,6 +48,7 @@
 .heading {
   text-transform: capitalize;
   font-weight: bold;
+  font-size: 1.5rem;
 }
 .img {
   display: flex;
@@ -73,4 +74,29 @@
   margin-bottom: 2%;
   /* align-items: flex-start; */
   /* justify-content: left; */
+}
+
+
+.pitch {
+display: block;
+z-index: 3;
+background-color: black;
+color: white;
+width: 100vw;
+padding:2%;
+justify-self:center;
+margin-bottom: 5%;
+}
+.pitchHead {
+    padding-left: 10%;
+    text-transform: capitalize;
+  font-weight: bold;
+  font-size: 1.5rem;
+
+}
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2% 0;
 }

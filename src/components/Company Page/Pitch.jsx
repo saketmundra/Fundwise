@@ -1,8 +1,18 @@
-import React from 'react'
+import React from 'react';
+import ReactPlayer from "react-player";
+import classes from "./Info.module.css";
 
 const Pitch = () => {
   return (
-    <div>Pitch</div>
+    <div className={classes.pitch}>
+    <h2 className={classes.pitchHead}>Pitch</h2>
+    <div className={classes.player}>
+
+      <ReactPlayer
+        url="https://www.youtube.com/watch?v=ug50zmP9I7s"
+      />
+    </div>
+    </div>
   )
 }
 
