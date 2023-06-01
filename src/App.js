@@ -6,16 +6,18 @@ import UserSignupForm from './components/authentication/userSignup';
 import LandingPage from './LandingPage';
 import UserLogin from './components/authentication/userLogin';
 import StartupLogin from './components/authentication/startupLogin';
+import AboutPage from './components/AboutPage';
 const App = () => {
   return (
     <div>
       <Navbar />
       <Routes>
         <Route path='/' element={<LandingPage />} />
-        <Route path='/raise' element={<StartupSignup />} />
-        <Route path='/invest' element={<UserSignupForm />} />
-        <Route path='/userLogin' element={<UserLogin />} />
-        <Route path='/startupLogin' element={<StartupLogin />} />
+        <Route path='/about' element={<AboutPage />} />
+        <Route path='/raise' element={<StartupLogin />} />
+        <Route path='/invest' element={<UserLogin />} />
+        <Route path='/userSignup' element={<UserSignupForm />} />
+        <Route path='/startupSignup' element={<StartupSignup />} />
       </Routes>
       
       {/* <Hero />
