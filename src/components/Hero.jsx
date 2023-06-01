@@ -13,12 +13,12 @@ const textRef = useRef()
   return (
     <div className='text-white'>
         <div className='w-full h-screen mx-auto text-center flex flex-col justify-center bg-black'>
-            <p className='text-[#00df9a] font-bold p-2 text-3xl'>INVEST SECURELY IN STARTUPS</p>
-            <h1 className='md:text-6xl font-bold md:py-6'>Grow your wealth with cryptocurrency!</h1>
+            <p className='text-[#00df9a] font-bold p-2 text-4xl'>INVEST SECURELY IN STARTUPS</p>
+            <h1 className='md:text-7xl font-bold md:py-6'>Grow your wealth with cryptocurrency!</h1>
             <div>
-                <p className='md:text-3xl font-bold py-4'>Fast & flexible investment in startups in <span ref={textRef}></span>. </p>
+                <p className='md:text-4xl font-bold py-4'>Fast & flexible investment in <span ref={textRef}></span> startups. </p>
             </div>
-            <p className='md:text-2xl text-xl font-bold text-gray-500 '>Monitor your investments in varied early-stage startups.</p>
+            <p className='md:text-3xl text-xl font-bold text-gray-500 '>Monitor your investments in varied early-stage startups in exchnage of bitcoin, ethereum etc</p>
             <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'>Get Started</button>
         </div>
     </div>

@@ -8,7 +8,8 @@ import {
   } from 'react-icons/fa'
 const Footer = () => {
   return (
-    <div className='max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300'>
+    <div className='bg-black'>
+    <div className='max-w-[1240px] bg-black mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300'>
         <div>
         <h1 className='w-full text-3xl font-bold text-[#00df9a]'>Coinvest</h1>
         <p className='py-4'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis aut incidunt odio officiis repellendus, nulla minus. Dolore eligendi doloremque dolor expedita unde accusamus harum aliquam maxime, autem ut ipsam laudantium.</p>
@@ -59,6 +60,7 @@ const Footer = () => {
                 </ul>
             </div>
         </div>
+    </div>
     </div>
   )
 }
