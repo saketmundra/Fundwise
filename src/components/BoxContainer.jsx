@@ -42,7 +42,7 @@ const BoxContainer = (props) => {
           </ListItem>
           <Divider />
           <ListItem>
-            <ListItemText secondary="Closes in" primary={props.targetDate} />
+            <ListItemText secondary="Closes on" primary={props.targetDate} />
           </ListItem>
         </List>
     </Box>
