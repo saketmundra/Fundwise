@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 import classes from "./Info.module.css";
 import { Divider } from "@mui/material";
 
-export default function FolderList() {
+export default function FolderList({company}) {
   return (
     <div className={classes.deal}>
       <h2 className={classes.heading}>Deal Terms</h2>
@@ -26,20 +26,20 @@ export default function FolderList() {
           <ListItem>
             <ListItemText
               secondary="Valuation Cap"
-              primary="Rs.3,28,00,00,000"
+              primary={`${company.valuation} ETH`}
             />
           </ListItem>
           <Divider />
           <ListItem>
-            <ListItemText secondary="Min Subscription" primary="Rs.5,000" />
+            <ListItemText secondary="Min Subscription" primary={`${company.minsubamt} ETH`} />
           </ListItem>
           <Divider />
           <ListItem>
-            <ListItemText secondary="Target" primary="Rs.10,00,000" />
+            <ListItemText secondary="Target" primary={`${company.target} ETH`} />
           </ListItem>
           <Divider />
           <ListItem>
-            <ListItemText secondary="End Date" primary="8 Jun 2023" />
+            <ListItemText secondary="End Date" primary={`${company.targetDate}`} />
           </ListItem>
           <Divider />
         </List>

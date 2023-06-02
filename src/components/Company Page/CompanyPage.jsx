@@ -11,24 +11,27 @@ import {useParams} from 'react-router-dom'
 
 const CompanyPage = () => {
 
-  let tempId=useParams();
-  const [id,setId]=useState(tempId.id)
+  let {id}=useParams();
+  console.log(id)
   const [company,setCompany] = useState({})
+  const getCompanyData = async() =>{
+    if(id){
+    const response = await axios.get(`http://localhost:5000/api/company/getcomp/${id}`)
+    const data = await response.data;
+    setCompany(data?.[0]);
+    }
+  }
   useEffect(()=> {
-    console.log(id)
-    axios.get(`http://localhost:5000/api/company/getcomp/:${id}`)
-    .then(function(response) {
-      setCompany(response.data)
-    })
+    getCompanyData();
   },[])
   return (
     <div className={classes.main}>
         <Info company={company}/>
         <Highlights />
-        <DealTerms />
+        <DealTerms company={company}/>
         <Docs />
-        <Pitch />
-        <MeetTeam />
+        <Pitch company={company}/>
+        <MeetTeam company={company}/>
     </div>
   )
 }

@@ -10,7 +10,7 @@ import profile from "../../assets/profile.png";
 import linkedin from "../../assets/linkedin.png"
 import classes from "./Info.module.css";
 
-const MeetTeam = () => {
+const MeetTeam = ({company}) => {
   const info = "Name";
   return (
     <div className={classes.highlight}>
@@ -27,19 +27,19 @@ const MeetTeam = () => {
         sx={{width:"150px",height:'150px'}} 
       />
           <Typography variant="h5" component="div">
-            Sahil Srivastava
+            {company.founderName}
           </Typography>
           <Typography sx={{ mb: 1.5 }} color="text.secondary">
             Founder
           </Typography>
           <Typography variant="body2">
-          eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem reru
+          {company.founderLn || "eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem reru"}
             <br />
 
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" href="https://www.linkedin.com/feed/">
+          <Button size="small" href={company.linkedin || "https://www.linkedin.com/feed/"}>
             <img src={linkedin} alt="contact" width="25px" height="25px" />
           </Button>
         </CardActions>
