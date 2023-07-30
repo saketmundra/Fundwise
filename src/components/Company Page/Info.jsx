@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./Info.module.css";
 
 const Info = ({company}) => {
-  console.log(company)
   return (
     <div className={classes.container}>
       <div className={classes.description}>

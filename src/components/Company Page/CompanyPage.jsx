@@ -10,9 +10,7 @@ import axios from "axios";
 import {useParams} from 'react-router-dom'
 
 const CompanyPage = () => {
-
   let {id}=useParams();
-  console.log(id)
   const [company,setCompany] = useState({})
   const getCompanyData = async() =>{
     if(id){

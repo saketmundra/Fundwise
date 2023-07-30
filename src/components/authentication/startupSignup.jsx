@@ -6,11 +6,10 @@ import FormLabel from '@mui/material/FormLabel';
 import { Contract, ethers, providers, utils } from "ethers";
 import Web3Modal from "web3modal";
 import { useNavigate } from "react-router-dom";
-import {CONTRACT_ADDRESS,abi,walletAbi,walletBytecode} from '../../constants'
 
 import axios from "axios";
 
-import './startupSignup.css'
+import './auth.css'
 
 function StartupSignup() {
 
@@ -19,8 +18,6 @@ function StartupSignup() {
     let path = `/raise`; 
     navigate(path);
   }
-  const web3ModalRef = useRef();
-  const [walletConnected,setWalletConnected] = useState(false);
   const [loading,setLoading] = useState(false);
   const [userData,setUserData] = useState({
     companyName: "",
@@ -42,49 +39,6 @@ function StartupSignup() {
     walletAddress: ""
   })
 
-  const getProviderOrSigner = async (needSigner = false) => {
-    // Connect to Metamask
-    // Since we store `web3Modal` as a reference, we need to access the `current` value to get access to the underlying object
-    const provider = await web3ModalRef.current.connect();
-    console.log(provider)
-    const web3Provider = new providers.Web3Provider(provider);
-
-    // If user is not connected to the Goerli network, let them know and throw an error
-    const { chainId } = await web3Provider.getNetwork();
-    if (chainId !== 11155111) {
-      window.alert("Change the network to Sepolia");
-      throw new Error("Change network to Sepolia");
-    }
-
-    if (needSigner) {
-      const signer = web3Provider.getSigner();
-      return signer;
-    }
-    return web3Provider;
-  };
-  const connectWallet = async () => {
-    try {
-      // Get the provider from web3Modal, which in our case is MetaMask
-      // When used for the first time, it prompts the user to connect their wallet
-      const signer = await getProviderOrSigner(true);
-      const address = await signer.getAddress();
-      setUserData(prevUserData => {return {...prevUserData,walletAddress: address}})
-      setWalletConnected(true);
-
-    } catch (err) {
-      console.error(err);
-    }
-  };
-  useEffect(()=>{
-    if(!walletConnected){
-      web3ModalRef.current = new Web3Modal({
-        network: "sepolia",
-        providerOptions:{},
-        disableInjectedProvider: false
-      })
-      connectWallet();
-    }
-  },[walletConnected])
 
   const handleInput = (e) => {
 		setUserData({ ...userData, [e.target.name]: e.target.value });
@@ -117,31 +71,6 @@ function StartupSignup() {
 
         } 
         console.log(userD)
-        try{
-          setLoading(true);
-          const response = await axios.post('http://localhost:5000/api/company/signup', userD)
-          const id = await response.data;
-          const signer = await getProviderOrSigner(true);
-          console.log(id, typeof id);
-          const factory = new ethers.ContractFactory(walletAbi,walletBytecode,signer);
-          const contract = await factory.deploy(userData.walletAddress,CONTRACT_ADDRESS);
-          await contract.deployed();
-          const contractAddress = contract.address;
-          userD.assignedAddress=contractAddress;
-          console.log("Wallet Address: ",contractAddress);
-
-          const target = utils.parseEther(userD.target);
-          const investContract = new Contract(CONTRACT_ADDRESS,abi,signer);
-          const tx = await investContract.createCompany(userD.legalName,id,target,contract.address);
-          await tx.wait();
-
-          const putResponse = await axios.put('http://localhost:5000/api/company/update',{id: id,assignedAddress: contractAddress});
-          console.log(await putResponse.data);
-          setLoading(false);
-          // Update 
-        }catch(error){
-          console.error(error);
-        }
         setLoading(false);
       }
 
@@ -220,13 +149,13 @@ function StartupSignup() {
 
 
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor="walletAdd">Wallet Address</FormLabel>
-                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type='text' id='walletAdd' onClick={()=> {if(!walletConnected){connectWallet()}}} value={userData.walletAddress || "Click to connect your wallet."} name='walletAdd' placeholder='Wallet Address' disabled/>
+                <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type='text' id='walletAdd' name='walletAdd' placeholder='Wallet Address' disabled/>
 
 
                 <FormLabel sx={{display:"block", fontSize: "1.3rem", margin:"3% auto 1% 31%"}} htmlFor='vidlink'>Video Link Explaining your startup:</FormLabel>
                 <TextField onChange={handleInput} sx={{width:"40%", marginLeft:"31%"}} type="url" id='vidlink' name='vidlink' placeholder='Video Link' />
 
-                <Button onClick={handleBtn} sx={{display:"block", margin:"3% auto 2%", color:"#00df9a",padding:"0.5% 6%"}} type='submit' disabled={!walletConnected}>Register Now</Button>
+                <Button onClick={handleBtn} sx={{display:"block", margin:"3% auto 2%", color:"#00df9a",padding:"0.5% 6%"}} type='submit' >Register Now</Button>
 
             </form>
         </div>

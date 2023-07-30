@@ -1,7 +1,9 @@
 import React from 'react'
 import { init } from 'ityped'
 import { useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 const Hero = () => {
+  const navigate=useNavigate();
 const textRef = useRef()
   useEffect(()=>{
     init(textRef.current, { 
@@ -19,7 +21,8 @@ const textRef = useRef()
                 <p className='md:text-4xl font-bold py-4'>Fast & flexible investment in <span ref={textRef}></span>. </p>
             </div>
             <p className='md:text-3xl text-xl font-bold text-gray-500 '>Monitor your investments in varied early-stage startups in exchnage of bitcoin, ethereum etc</p>
-            <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'>Get Started</button>
+            <button onClick={()=>navigate('./invest')} className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'>Invest Now</button>
+            
         </div>
     </div>
   )

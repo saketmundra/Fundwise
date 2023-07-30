@@ -12,7 +12,6 @@ const Listing = (props) => {
   useEffect(()=> {
     axios.get("http://localhost:5000/api/company/getall")
     .then(function(response) {
-      console.log(response.data)
       setCompanies(response.data)
     })
   },[])

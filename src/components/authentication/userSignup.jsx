@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import axios from 'axios';
 
-import './userSignup.css'
+import './auth.css'
 
 
 function UserSignupForm() {

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -8,6 +9,11 @@ import classes from "./Info.module.css";
 import { Divider } from "@mui/material";
 
 export default function FolderList({company}) {
+  const [investment, setinvestment] = useState(0);
+  const investAmt=()=>{
+    
+    setinvestment(0);
+  }
   return (
     <div className={classes.deal}>
       <h2 className={classes.heading}>Deal Terms</h2>
@@ -44,8 +50,8 @@ export default function FolderList({company}) {
           <Divider />
         </List>
         <div className={classes.input}>
-        <TextField  style={{minWidth: '70px', minHeight: '60px'}} id="filled-basic" label="Enter amount" variant="filled" />
-        <Button sx={{background:'#00df9a',minWidth: '220px', minHeight: '30px'}} variant="contained">Invest Now</Button>
+          <TextField  style={{minWidth: '70px', minHeight: '60px'}} onChange={(e)=>setinvestment(e.target.value)} id="filled-basic" label="Enter amount" className="invest" variant="filled" />
+          <Button sx={{background:'#00df9a',minWidth: '220px', minHeight: '30px'}} onClick={investAmt} variant="contained">Invest Now</Button>
         </div>
       </div>
     </div>

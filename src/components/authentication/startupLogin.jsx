@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
-import './userLogin.css'
+import './auth.css'
 
 function StartupLogin() {
 

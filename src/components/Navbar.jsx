@@ -1,38 +1,40 @@
 import React, {useState} from 'react'
-import { AuthContext } from '../store/AuthContext'
+// import { AuthContext } from '../store/AuthContext'
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
+import { useDispatch} from "react-redux";
+import { changeState } from '../store/loginslice';
+import { useNavigate } from "react-router-dom";
+
 const Navbar = ({loggedIn}) => {
-    const [nav, setNav] = useState(false)
-    const handleNav = () => {
-        setNav(!nav)
+    const navigate=useNavigate();
+    const dispatch=useDispatch();
+    const handleHold=()=>{
+        navigate('/holdings')
+    }
+
+    const handleLogout=()=>{
+        localStorage.removeItem("access_token");
+        dispatch(changeState());
+        navigate('./')
     }
 
   return (
     <div className='flex justify-between items-center h-24  mx-auto px-4 text-white bg-black border-none shadow-md '>
-        <h1 className='w-full text-3xl font-bold text-[#00df9a]'>COINVEST</h1>
+        <h1 className='w-full text-3xl font-bold text-[#00df9a]' style={{cursor:"pointer"}} onClick={()=>{loggedIn?navigate('./companies'):navigate('./')}}>fundwise</h1>
         <ul className='hidden md:flex'>
-            <li className='p-4'><a href='./'>Home</a></li>
-            <li className='p-4'><a href='./about'>About</a></li>
+            {!loggedIn?
+            <>
+            <li className='p-4'><a href='./invest'>Invest</a></li>
             <li className='p-4'><a href='./raise'>Raise</a></li>
-            {!loggedIn?<li className='p-4'><a href='./invest'>Invest</a></li>:<li className='p-4'><a href='./'>Logout</a></li>}
-            {loggedIn?<li className='p-4'><a href='./invest'>Holdings</a></li>:''}
+            <li className='p-4'><a href='./about'>About</a></li>
+            </>:''}
+            {loggedIn?<>
+                <li className='p-4' style={{cursor:"pointer"}} onClick={handleHold}>Holdings</li>
+                <span/>
+                <li className='p-4' style={{cursor:"pointer"}} onClick={handleLogout}>Logout</li>
+                </>:''}
+            
         </ul>
-    <div onClick={handleNav} className='block md:hidden'>
-        {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
-    </div>
-
-    <div className={nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500' : 'ease-in-out duration-500 fixed left-[-100%]'}>
-    <h1 className='w-full text-3xl font-bold text-[#00df9a]'>React.</h1>
-        <ul className='uppercase p-4'>
-             <li className='p-4 border-b border-gray-600'>Home</li>
-            <li className='p-4 border-b border-gray-600'>Company</li>
-            <li className='p-4 border-b border-gray-600'>Resources</li>
-            <li className='p-4 border-b border-gray-600'>About</li>
-            <li className='p-4 border-b border-gray-600'>Holdings</li>
-            <li className='p-4'>Contact</li>
-        </ul>
-    </div>
-    
     </div>
   )
 }
