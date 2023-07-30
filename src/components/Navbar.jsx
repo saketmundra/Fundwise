@@ -8,9 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Navbar = ({loggedIn}) => {
     const navigate=useNavigate();
     const dispatch=useDispatch();
-    const handleHold=()=>{
-        navigate('/holdings')
-    }
+
 
     const handleLogout=()=>{
         localStorage.removeItem("access_token");
@@ -29,8 +27,8 @@ const Navbar = ({loggedIn}) => {
             <li className='p-4'><a href='./about'>About</a></li>
             </>:''}
             {loggedIn?<>
-                <li className='p-4' style={{cursor:"pointer"}} onClick={handleHold}>Holdings</li>
-                <span/>
+                <li className='p-4' style={{cursor:"pointer"}} onClick={()=>navigate("/companies")}>Companies</li>
+                <li className='p-4' style={{cursor:"pointer"}} onClick={()=>navigate('/holdings')}>Holdings</li>
                 <li className='p-4' style={{cursor:"pointer"}} onClick={handleLogout}>Logout</li>
                 </>:''}
             

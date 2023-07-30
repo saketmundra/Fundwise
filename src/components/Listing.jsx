@@ -10,7 +10,7 @@ const Listing = (props) => {
 
   const [companies,setCompanies] = useState([])
   useEffect(()=> {
-    axios.get("http://localhost:5000/api/company/getall")
+    axios.get("https://finback.onrender.com/api/company/getall")
     .then(function(response) {
       setCompanies(response.data)
     })

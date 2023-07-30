@@ -14,7 +14,7 @@ const CompanyPage = () => {
   const [company,setCompany] = useState({})
   const getCompanyData = async() =>{
     if(id){
-    const response = await axios.get(`http://localhost:5000/api/company/getcomp/${id}`)
+    const response = await axios.get(`https://finback.onrender.com/api/company/getcomp/${id}`)
     const data = await response.data;
     setCompany(data?.[0]);
     }

@@ -33,7 +33,6 @@ function UserSignupForm() {
 
 const handleBtn = (e) => {
   e.preventDefault();
-  console.log(userData)
   const userD={
     email: userData.email,
     name: userData.name,
@@ -42,9 +41,9 @@ const handleBtn = (e) => {
     adhno: userData.aadhar,
     password: userData.userpassword
   } 
-  console.log(userD)
-  axios.post('http://localhost:5000/api/users/signup', userD)
-  .then(response => console.log(response.status));
+  axios.post('https://finback.onrender.com/api/users/signup', userD)
+  .then(response => console.log(response.status))
+  .then(navigate('/invest'));
 }
 
 
