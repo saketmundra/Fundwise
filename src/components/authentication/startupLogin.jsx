@@ -28,16 +28,14 @@ function StartupLogin() {
         // console.log(userData)
 	};
 
-    const handleBtn = (e) => {
+    const handleBtn = async (e) => {
         e.preventDefault();
-        console.log(userData)
         const userD={
           email: userData.suemail,
           password: userData.supassword
         } 
-        console.log(userD)
-        axios.post('https://finback.onrender.com/api/company/signin', userD)
-        .then(response => console.log(response.status));
+        const res= await axios.post('https://finback.onrender.com/api/company/signin', userD);
+        console.log(res);
       }
 
     return(

@@ -1,10 +1,9 @@
-import React,{useState,useEffect,useRef} from "react";
+import React,{useState} from "react";
 
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import FormLabel from '@mui/material/FormLabel';
-import { Contract, ethers, providers, utils } from "ethers";
-import Web3Modal from "web3modal";
+
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
@@ -42,13 +41,11 @@ function StartupSignup() {
 
   const handleInput = (e) => {
 		setUserData({ ...userData, [e.target.name]: e.target.value });
-        // console.log(userData)
 	};
 
 
     const handleBtn = async(e) => {
         e.preventDefault();
-        console.log(userData)
         const userD={
           legalName: userData.companyName,
           email: userData.companyEmail,
@@ -65,13 +62,10 @@ function StartupSignup() {
           custBase: userData.custBase,
           revenue: userData.revenue,
           videoLink: userData.vidlink,
-          assignedAddress:"demo",
-          walletAddress: userData.walletAddress,
           documents: userData.docs,
-
         } 
-        console.log(userD)
         setLoading(false);
+        
       }
 
     return (

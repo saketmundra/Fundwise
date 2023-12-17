@@ -12,12 +12,13 @@ import Listing from "./components/Listing";
 import CompanyPage from "./components/Company Page/CompanyPage";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import Holdings from "./components/Holdings/Holdings";
+import Chatgpt from "./ChatBot/Chatgpt";
 const App = () => {
   const isLoggedIn = useSelector((state)=>state.login.value);
 
   return (
     <div>
-      {console.log(isLoggedIn)}
+      {/* <Chatgpt/> */}
       <Navbar loggedIn={isLoggedIn} />
       <Routes>
         <Route path="/" element={<LandingPage />} />
